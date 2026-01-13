@@ -2,6 +2,7 @@ const User = require("./models/User");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 app.use(cors());
@@ -13,8 +14,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const MONGO_URI =
-  "mongodb+srv://mongoUser:mati1@cluster0.wxwcukg.mongodb.net/MorDB?retryWrites=true&w=majority";
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://mongoUser:mati1@cluster0.wxwcukg.mongodb.net/MorDB?retryWrites=true&w=majority";
 
 // ✅ לוגים ברורים לחיבור
 mongoose.connection.on("connected", () => console.log("✅ mongoose connected"));
