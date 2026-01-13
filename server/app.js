@@ -14,7 +14,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://lidor_web:Lidor053@cluster0.aahkhr6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://lidor_web:Lidor053@cluster0.aahkhr6.mongodb.net/?appName=Cluster0";
 
 mongoose.connection.on("connected", () => console.log("✅ mongoose connected"));
 mongoose.connection.on("error", (e) => console.log("❌ mongoose error:", e.message));
