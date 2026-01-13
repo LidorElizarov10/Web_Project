@@ -3,7 +3,7 @@
     "outputDirectory": "client/dist",
     "installCommand": "cd client && npm install",
     "functions": {
-        "app/api/**/*.js": {
+        "api/**/*.js": {
             "runtime": "nodejs20.x"
         }
     },
