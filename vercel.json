@@ -1,9 +1,15 @@
 {
-    "outputDirectory": "dist",
+    "buildCommand": "cd client && npm install && npm run build",
+    "outputDirectory": "client/dist",
+    "installCommand": "cd client && npm install",
     "rewrites": [
         {
             "source": "/api/(.*)",
             "destination": "/api/index.js"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
         }
     ]
 }
