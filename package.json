@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "postinstall": "cd client && npm install",
-        "build": "cd client && npm run build"
+        "build": "cd client && npm run build && cd .. && rm -rf dist && cp -r client/dist dist"
     },
     "dependencies": {
         "cors": "^2.8.5",
