@@ -237,21 +237,21 @@ app.post("/score/multiplication", async (req, res) => {
       { new: true, projection: { password: 0 } }
     );
 
-// GET /user/division-f?username=...
-app.get("/user/division-f", async (req, res) => {
-  try {
-    const { username } = req.query;
-    if (!username) return res.status(400).json({ ok: false, error: "NO_USERNAME" });
+    // GET /user/division-f?username=...
+    app.get("/user/division-f", async (req, res) => {
+      try {
+        const { username } = req.query;
+        if (!username) return res.status(400).json({ ok: false, error: "NO_USERNAME" });
 
-    const user = await User.findOne({ username }, { password: 0 });
-    if (!user) return res.status(404).json({ ok: false, error: "NO_USER" });
+        const user = await User.findOne({ username }, { password: 0 });
+        if (!user) return res.status(404).json({ ok: false, error: "NO_USER" });
 
-    return res.json({ ok: true, division_f: user.division_f ?? 1 });
-  } catch (e) {
-    console.log("ERR:", e);
-    return res.status(500).json({ ok: false, error: "SERVER_ERROR" });
-  }
-});
+        return res.json({ ok: true, division_f: user.division_f ?? 1 });
+      } catch (e) {
+        console.log("ERR:", e);
+        return res.status(500).json({ ok: false, error: "SERVER_ERROR" });
+      }
+    });
 
     console.log("UPDATED USER:", user); // ✅ גם זה עוזר מאוד
 
@@ -389,6 +389,12 @@ app.post("/user/stats", async (req, res) => {
 });
 
 
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
-});
+// Export the app for Vercel (or tests)
+module.exports = app;
+
+// Only listen if this file is run directly (not imported)
+if (require.main === module) {
+  app.listen(3000, () => {
+    console.log("Server running on http://localhost:3000");
+  });
+}

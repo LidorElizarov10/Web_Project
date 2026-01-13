@@ -4,7 +4,9 @@ import useCatCongrats from "./useCatCongrats";
 import useCatUncongrats from "./useCatUncongrats";
 
 const MULT_STATE_KEY = "multiplication_practice_state_v1";
-const API_BASE = "http://localhost:3000";
+import API_URL from "../config";
+
+const API_BASE = API_URL;
 
 /**
  * Hebrew UI text stays Hebrew (kid-facing).
@@ -301,8 +303,8 @@ export default function PracticeMultiplication() {
           {level === "beginners"
             ? "מתחילים 😺"
             : level === "advanced"
-            ? "מתקדמים 🐾"
-            : "אלופים 🐯"}
+              ? "מתקדמים 🐾"
+              : "אלופים 🐯"}
         </div>
       </div>
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 
-const API = "http://localhost:3000";
+import API_URL from "../config";
+
+const API = API_URL;
 
 const SILVER = 30;
 const GOLD = 60;
@@ -229,8 +231,8 @@ function ScoreRow({ label, value, emoji }) {
             {v >= GOLD
               ? "הגעת לזהב! 🥇"
               : v >= SILVER
-              ? `יעד הבא: זהב (${GOLD})`
-              : `יעד ראשון: כסף (${SILVER})`}
+                ? `יעד הבא: זהב (${GOLD})`
+                : `יעד ראשון: כסף (${SILVER})`}
           </div>
           {v >= GOLD ? <div>מושלם 🎉</div> : <div>נשארו {remaining} נק׳</div>}
         </div>

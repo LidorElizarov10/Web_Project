@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import catWelcomeGif from "./assets/CatWelcome.gif";
 
+import API_URL from "./config";
+
 export default function CheckTest1() {
   const navigate = useNavigate();
 
@@ -40,7 +42,7 @@ export default function CheckTest1() {
     setMsg("בודק...");
 
     try {
-      const res = await fetch("http://localhost:3000/check-login", {
+      const res = await fetch(`${API_URL}/check-login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),

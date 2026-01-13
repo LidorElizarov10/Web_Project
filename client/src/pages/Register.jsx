@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 // דרך הכי יציבה ב-Vite לקבצים:
 const catWelcomeGif = new URL("../assets/CatWelcome.gif", import.meta.url).href;
 
+import API_URL from "../config";
+
 export default function Register() {
   const navigate = useNavigate();
 
@@ -49,7 +51,7 @@ export default function Register() {
     setMsg("נרשם...");
 
     try {
-      const res = await fetch("http://localhost:3000/register", {
+      const res = await fetch(`${API_URL}/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password, age: ageNum }),

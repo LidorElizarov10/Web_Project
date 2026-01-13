@@ -4,7 +4,9 @@ import useCatCongrats from "./useCatCongrats.jsx";
 import useCatUncongrats from "./useCatUncongrats.jsx";
 
 const DIV_STATE_KEY = "division_practice_state_v1";
-const API_BASE = "http://localhost:3000";
+import API_URL from "../config";
+
+const API_BASE = API_URL;
 
 /**
  * Hebrew UI text (kid-facing).
@@ -303,8 +305,8 @@ export default function PracticeDivision() {
           {level === "beginners"
             ? "מתחילים 😺"
             : level === "advanced"
-            ? "מתקדמים 🐾"
-            : "אלופים 🐯"}
+              ? "מתקדמים 🐾"
+              : "אלופים 🐯"}
         </div>
       </div>
 

@@ -5,7 +5,9 @@ import useCatCongrats from "./useCatCongrats";
 import useCatUncongrats from "./useCatUncongrats";
 
 const ADD_STATE_KEY = "addition_practice_state_v1";
-const API_BASE = "http://localhost:3000";
+import API_URL from "../config";
+
+const API_BASE = API_URL;
 
 const LEVELS = {
   easy: { label: "מתחילים (0–10)", min: 0, max: 10 },
@@ -294,14 +296,14 @@ export default function PracticeAddition() {
           {level === "easy"
             ? "מתחילים 😺"
             : level === "medium"
-            ? "מתקדמים 🐾"
-            : "אלופים 🐯"}
+              ? "מתקדמים 🐾"
+              : "אלופים 🐯"}
         </div>
       </div>
 
       {/* Correct display: a + b = ? */}
       <div style={{ fontSize: 28, fontWeight: 800, margin: "16px 0" }}>
-      =-.,mnbvcxz{q.b} + {q.a} 
+        =-.,mnbvcxz{q.b} + {q.a}
       </div>
 
       <input

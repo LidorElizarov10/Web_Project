@@ -4,7 +4,9 @@ import useCatCongrats from "./useCatCongrats";
 import useCatUncongrats from "./useCatUncongrats";
 
 const PERCENT_STATE_KEY = "percent_practice_state_v1";
-const API_BASE = "http://localhost:3000";
+import API_URL from "../config";
+
+const API_BASE = API_URL;
 
 const LEVELS = {
   easy: { label: "מתחילים (קל מאוד)", minBase: 10, maxBase: 200 },
@@ -295,8 +297,8 @@ export default function PracticePercent() {
           {level === "easy"
             ? "מתחילים 😺"
             : level === "medium"
-            ? "מתקדמים 🐾"
-            : "אלופים 🐯"}
+              ? "מתקדמים 🐾"
+              : "אלופים 🐯"}
         </div>
       </div>
 
